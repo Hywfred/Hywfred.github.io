@@ -96,21 +96,23 @@ avatar:
   effect: false
 
 # the banner image of home page
-index_img: https://s1.ax1x.com/2020/09/02/w9QXAU.jpg #https://s1.ax1x.com/2020/09/02/w9QL7T.jpg
+index_img: https://s1.ax1x.com/2020/09/03/wiCzMF.jpg #https://s1.ax1x.com/2020/09/03/wiC8u4.jpg 
+  #https://s1.ax1x.com/2020/09/03/wiCP9f.jpgF #https://s1.ax1x.com/2020/09/03/wCF2VA.jpg
+  #https://s1.ax1x.com/2020/09/02/w9QXAU.jpg #https://s1.ax1x.com/2020/09/02/w9QL7T.jpg
 
 # if the banner of page not setting, it will show the top_img
-default_top_img:
+default_top_img: https://s1.ax1x.com/2020/09/02/w9QL7T.jpg
 
 # the banner image of archive page
-archive_img:
+archive_img: https://s1.ax1x.com/2020/09/03/wiPSr4.jpg
 
 # the banner image of tag page
 # note: tag page, not tags page (子標籤頁面的 top_img)
-tag_img:
+tag_img: 
 
 # the banner image of category page
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img:
+category_img: 
 
 # If you are using hexo-douban, you can configure it (如果你有使用 hexo-douban,可配置這個)
 # douban:
