@@ -64,3 +64,5 @@ date: 2020-09-03 10:28:18
 > aplayer: #【可選】在需要的頁面加載 aplayer 的 js 和 css, 請參考文章下面的音樂 配置
 > highlight_shrink: #【可選】配置代碼框是否展開 (true/false)(默認為設置中 highlight_shrink 的配置)
 > ---
+
+## 3. 关于 `butterfly` 详细的配置请移步 [butterfly 配置](https://demo.jerryc.me/posts/4aa8abbe/#%E8%AA%9E%E8%A8%80)
