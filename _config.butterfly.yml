@@ -61,7 +61,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
   labels:
     input_placeholder: Search for Posts
     hits_empty: "We didn't find any results for the search: ${query}" # if there are no result
@@ -233,14 +233,14 @@ addThis:
 # Share.js
 # https://github.com/overtrue/share.js
 sharejs:
-  enable: true
+  enable: false
   sites: facebook,twitter,wechat,weibo,qq
 
 # AddToAny
 # https://www.addtoany.com/
 addtoany:
-  enable: false
-  item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
+  enable: true
+  item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link, google_gmail, telegram, wordpress
 
 # Comments System
 # --------------------------------------
@@ -249,13 +249,13 @@ comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Utterances/Facebook Comments
   use:
-  # - Valine
-  # - Disqus
+    - Valine
+    - Gitalk
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
   lazyload: false
-  count: false # Display comment count in top_img
+  count: true # Display comment count in top_img
 
 # disqus
 # https://disqus.com/
@@ -282,11 +282,11 @@ livere:
 # gitalk
 # https://github.com/gitalk/gitalk
 gitalk:
-  client_id:
-  client_secret:
-  repo:
-  owner:
-  admin:
+  client_id: 0052e7b2984483a43e2c
+  client_secret: 4febff9b2ec9b59e75e0c0009abc54808503f914
+  repo: hywfred.github.io
+  owner: hywfred
+  admin: hywfred
   language: zh-CN #en # en, zh-CN, zh-TW, es-ES, fr, ru
   perPage: 10 # Pagination size, with maximum 100.
   distractionFreeMode: false # Facebook-like distraction free mode.
@@ -296,8 +296,10 @@ gitalk:
 # valine
 # https://valine.js.org
 valine:
-  appId: # leancloud application app id
-  appKey: # leancloud application app key
+  appId: bcs8tO90VEM2LG7k10IISIT1-gzGzoHsz
+  # leancloud application app id
+  appKey: oUzUjE0m1pScTixwiIohGXeo
+  # leancloud application app key
   pageSize: 10 # comment list page size
   avatar: monsterid # gravatar style https://valine.js.org/#/avatar
   lang: en # i18n: zh-CN/zh-TW/en/ja
@@ -424,7 +426,7 @@ google_adsense:
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification:
+google_site_verification: fYfyF1okoPF7XgNQktkRcAuJMTcAzO1KSB54N1HiEHA
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
