@@ -21,37 +21,37 @@ cover: https://s1.ax1x.com/2020/09/06/wmBCOe.png
   ![](https://s1.ax1x.com/2020/09/01/dxLLFI.jpg)  
 * 点击进入控制台  
   ![](https://s1.ax1x.com/2020/09/01/dxLoOe.jpg)  
-* 点击左上角的图标  
+* 点击左上角的图标，选择`产品与服务`，然后在搜索框内输入关键字`容器镜像服务`，出现搜索结果后选择`容器镜像服务`  
   ![](https://s1.ax1x.com/2020/09/01/dxLbTA.jpg)  
-* 选择`产品与服务`，然后在搜索框内输入关键字`容器镜像服务`，出现搜索结果后选择`容器镜像服务`  
-  ![](https://s1.ax1x.com/2020/09/01/dxLHwd.jpg)  
 * 选择最下面的镜像加速器  
+  ![](https://s1.ax1x.com/2020/09/01/dxLHwd.jpg)  
+* 此时出现的部分就是如何将 `docker` 的默认镜像地址修改为阿里云加速地址的方法。按照红框内的方式操作即可（参考第二部分内容）。  
   ![](https://s1.ax1x.com/2020/09/01/dxL7eH.jpg)  
 
-此时出现的部分就是如何将 `docker` 的默认镜像地址修改为阿里云加速地址的方法。按照红框内的方式操作即可（如下所示）。
+
 
 ## 将 `docker` 默认地址更改为阿里镜像源  
 
-* 首先确定 `/etc/docker` 目录存在，如果不存在则创建
-  ``` shell
-  sudo mkdir -p /etc/docker
-  ```      
+* 首先确定 `/etc/docker` 目录存在，如果不存在则创建  
+```shell
+sudo mkdir -p /etc/docker   
+```
 * 在 `/etc/docker` 目录下增加文件 `daemon.json`，并将其内容改为加速地址  
-  ``` shell
-  sudo tee /etc/docker/daemon.json <<-'EOF'
-  {
-    "registry-mirrors": ["https://4wpmqmc8.mirror.aliyuncs.com"]
-  }
-  EOF
-  ```  
+```shell
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+"registry-mirrors": ["https://4wpmqmc8.mirror.aliyuncs.com"]
+}
+EOF
+```
 * 重载配置使之生效  
-  ``` shell
-  sudo systemctl daemon-reload
-  ```  
+```shell
+sudo systemctl daemon-reload
+```
 * 重启 `docker` 加载配置  
-  ``` shell
-  sudo systemctl restart docker
-  ```  
+```shell
+sudo systemctl restart docker
+```  
 
 如果登录的是 `root` 用户，则将命令的 `sudo` 去掉执行。
 
