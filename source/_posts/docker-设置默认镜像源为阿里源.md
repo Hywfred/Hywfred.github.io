@@ -51,7 +51,7 @@ sudo systemctl daemon-reload
 * 重启 `docker` 加载配置  
 ```shell
 sudo systemctl restart docker
-```  
+```
 
 如果登录的是 `root` 用户，则将命令的 `sudo` 去掉执行。
 
