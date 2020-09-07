@@ -1,9 +1,9 @@
 ---
-title: docker 设置默认镜像源为阿里源
+title: docker设置默认镜像源为阿里源
 tags: docker
 categories: docker
-keywords: 'docker,镜像源,阿里源'
-description: 将 docker 默认地址镜像源设置为阿里云加速地址镜像源
+keywords: "docker,镜像源,阿里源,国内源"
+description: 将docker默认地址镜像源设置为阿里云加速地址镜像源
 top_img: 'https://s1.ax1x.com/2020/09/06/wmBtpV.jpg'
 cover: 'https://s1.ax1x.com/2020/09/06/wmBCOe.png'
 abbrlink: fc4278eb

@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+
+Sitemap: https://phantomT.github.io/sitemap.xml
