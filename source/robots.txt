@@ -4,5 +4,5 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /fonts/
 
-Sitemap: https://phantomT.github.io/sitemap.xml
-Sitemap: https://phantomT.github.io/baidusitemap.xml
+Sitemap: https://weichal.com/sitemap.xml
+Sitemap: https://weichal.com/baidusitemap.xml
