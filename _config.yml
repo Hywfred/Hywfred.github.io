@@ -42,6 +42,13 @@ baidu_url_submit:
   token: gWoxOVeLZfFGUy03             	  # 秘钥
   path: baidu_urls.txt                # 文本文档的地址,新链接会保存在此文本文档里
 
+sitemap:
+  path: sitemap.xml
+  template: ./sitemap_template.xml
+  rel: false
+  tags: true
+  categories: true
+
 # Directory
 source_dir: source
 public_dir: public
