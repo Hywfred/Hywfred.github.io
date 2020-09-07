@@ -1,12 +1,13 @@
 ---
 title: docker 设置默认镜像源为阿里源
-date: 2020-09-06 10:04:28
 tags: docker
 categories: docker
-keywords: "docker,镜像源,阿里源"
+keywords: 'docker,镜像源,阿里源'
 description: 将 docker 默认地址镜像源设置为阿里云加速地址镜像源
-top_img: https://s1.ax1x.com/2020/09/06/wmBtpV.jpg
-cover: https://s1.ax1x.com/2020/09/06/wmBCOe.png
+top_img: 'https://s1.ax1x.com/2020/09/06/wmBtpV.jpg'
+cover: 'https://s1.ax1x.com/2020/09/06/wmBCOe.png'
+abbrlink: fc4278eb
+date: 2020-09-06 10:04:28
 ---
 
 `docker` 默认的镜像源在国外，所以我们安装完 `docker` 拉取镜像的时候速度会非常慢，而且经常拉取失败。这里介绍一下将 `docker` 默认镜像地址设置为阿里的镜像加速源的方法。如果想设置为国内其他镜像源的地址，也可参照方法进行相应地址的更改即可。  
