@@ -1,6 +1,7 @@
 ---
 title: Gallery
 date: 2020-09-04 12:29:26
+comments: false
 type: Galleries
 ---
 <div class="gallery-group-main">
