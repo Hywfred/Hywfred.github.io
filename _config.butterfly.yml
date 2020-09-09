@@ -171,7 +171,7 @@ wordcount:
 # 2: both (if the description exists, it will show description, or show the auto_excerpt)
 # 3: auto_excerpt (default)
 index_post_content:
-  method: 3
+  method: 2 #3
   length: 500 # if you set method to 2 or 3, the length need to config
 
 # Post
@@ -613,10 +613,13 @@ aside:
   card_author:
     enable: true
     description:
-    # button:
-    #   icon: fab fa-github
-    #   text: Follow Me
-    #   link: https://github.com/xxxxxx
+    button:
+      icon: fab fa-github
+      text: Follow Me
+      link: https://github.com/hywfred
+    # social:
+    #   fab fa-github: https://github.com/hywfred || Github
+    #   fas fa-envelope: mailto:hitwhy@gmail.com || Email
   card_announcement:
     enable: true
     content: 小站刚刚成立，欢迎大佬指点~

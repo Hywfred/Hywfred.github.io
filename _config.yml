@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: wanghy
-subtitle: 'demo test and so on'
-description: "If you don't keep moving, you'll quickly fall behind."
-keywords: blog
+title: 半闲斋
+subtitle: 技术分享·生活感悟 - 我的个人博客
+description: "我的个人博客 - 技术分享交流、生活感悟、个人情感表达之地"
+keywords: ["技术","开发者","程序员","码农","程序媛","生活感悟"]
 author: wanghy
 language: zh-CN # en
 timezone:
