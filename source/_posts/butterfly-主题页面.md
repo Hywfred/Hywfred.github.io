@@ -10,7 +10,7 @@ keywords:
   - hexo
   - theme
   - butterfly
-description: butterfly 博客主题的主题页面配置。包括`page`页面和`post`页面的相关配置。
+description: butterfly 博客主题的主题页面配置。包括page页面和post页面的metadata配置。
 top_img: 'https://s1.ax1x.com/2020/09/03/wiGagU.jpg'
 comments: true
 toc_number: false
@@ -66,4 +66,4 @@ date: 2020-09-03 10:28:18
 > highlight_shrink: #【可選】配置代碼框是否展開 (true/false)(默認為設置中 highlight_shrink 的配置)
 > ---
 
-## 3. 关于 `butterfly` 详细的配置请移步 [butterfly 配置](https://demo.jerryc.me/posts/4aa8abbe/#%E8%AA%9E%E8%A8%80)
+## 3. 关于 `butterfly` 详细的配置请移步 [butterfly 配置](https://demo.jerryc.me/posts/4aa8abbe)

@@ -42,9 +42,10 @@ copy:
 # formal:
 #   icon: link || the description
 social:
-  # fab fa-github: https://github.com/xxxxx || Github
-  # fas fa-envelope: mailto:xxxxxx@gmail.com || Email
-
+  fab fa-github: https://github.com/hywfred || Github
+  fas fa-envelope: mailto:hitwhy@gmail.com || Email
+  
+button: false
 # search (搜索)
 # --------------------------------------
 
@@ -617,9 +618,6 @@ aside:
       icon: fab fa-github
       text: Follow Me
       link: https://github.com/hywfred
-    # social:
-    #   fab fa-github: https://github.com/hywfred || Github
-    #   fas fa-envelope: mailto:hitwhy@gmail.com || Email
   card_announcement:
     enable: true
     content: 小站刚刚成立，欢迎大佬指点~
