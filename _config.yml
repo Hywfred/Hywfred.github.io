@@ -135,7 +135,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
 - type: 'git'
-  repo: https://github.com/Hywfred/Hywfred.github.io.git
+  repo: git@github.com:Hywfred/Hywfred.github.io.git
   branch: master
   message: '站点更新： {{ now("YYYY-MM-DD HH:mm:ss") }}'
 - type: baidu_url_submitter 	## 在这里添加新内容即可
