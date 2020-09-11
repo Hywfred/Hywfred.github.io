@@ -8,7 +8,7 @@ categories:
   - 操作系统
   - CentOS
 keywords: "CentOS,yum源,国内源"
-description: 使用config文件管理ssh配置，实现多个密钥管理。
+description: 设置CentOS默认的yum源为国内源，提高使用yum下载软件的速度。
 top_img: 'https://s1.ax1x.com/2020/09/11/wUAaNt.jpg'
 cover: 'https://s1.ax1x.com/2020/09/11/wUAUAI.jpg'
 abbrlink: 881d08f0
