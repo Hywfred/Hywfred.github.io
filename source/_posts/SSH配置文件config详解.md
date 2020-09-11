@@ -1,7 +1,10 @@
 ---
 title: 使用config文件管理ssh配置
-tags: ssh
-categories: ssh
+tags:
+  - ssh
+categories:
+  - 技术分享
+  - ssh
 keywords: 'ssh,config,配置,国内源'
 description: 使用config文件管理ssh配置，实现多个密钥管理。
 top_img: 'https://s1.ax1x.com/2020/09/07/wKGGnA.png'
@@ -9,6 +12,7 @@ cover: 'https://s1.ax1x.com/2020/09/07/wKGJ0I.png'
 abbrlink: 1c5df34e
 date: 2020-09-07 10:08:54
 ---
+## 阅读目录  
 [1. 前言](#1)
 [2. 生成密钥](#2)
 [3. 通过案例配置 `config`](#3)

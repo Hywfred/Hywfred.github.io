@@ -1,7 +1,11 @@
 ---
 title: docker设置默认镜像源为阿里源
-tags: docker
-categories: docker
+tags:
+  - docker
+categories:
+  - 技术分享
+  - hexo
+  - butterfly
 keywords: "docker,镜像源,阿里源,国内源"
 description: 将docker默认地址镜像源设置为阿里云加速地址镜像源
 top_img: 'https://s1.ax1x.com/2020/09/06/wmBtpV.jpg'
