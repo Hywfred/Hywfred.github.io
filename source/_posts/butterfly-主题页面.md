@@ -1,5 +1,5 @@
 ---
-title: butterfly 主题页面
+title: butterfly主题页面
 tags:
   - butterfly
   - hexo
@@ -7,7 +7,7 @@ categories:
   - 技术分享
   - hexo
   - butterfly
-keywords: ["hexo","theme","butterfly"]
+keywords: "hexo,theme,butterfly,主题"
 description: butterfly 博客主题的主题页面配置。包括page页面和post页面的metadata配置。
 top_img: 'https://s1.ax1x.com/2020/09/03/wiGagU.jpg'
 comments: true
