@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>使用Java客户端连接IMM系统时报错的解决方案</title>
+      <link href="/posts/32ee7bef/"/>
+      <url>/posts/32ee7bef/</url>
+      
+        <content type="html"><![CDATA[<p><a href="#1">1. 问题描述</a><br><a href="#2">2. 原因分析</a><br><a href="#3">3. 解决方案</a>  </p><span id="1"><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p><em>注意，本文只针对 <code>IBM</code> 的 <code>IMM</code> 或 <code>IMM2</code> 系统，因为其他系统没有尝试过，理论上大同小异。</em>  </p><p><strong>对 <code>BMC</code> 不太熟悉的朋友可以参考知乎的<a href="https://www.zhihu.com/question/54716507">这个链接</a>。简单来说， <code>BMC</code> 系统是独立于服务器操作系统的一个小型操作系统，提供了一种管理服务器的方式.</strong>  </p><p>远程连接 <code>BMC</code> 系统时，<code>IMM</code> 系统提供了三种方式，如下图所示：<br><img src="https://s1.ax1x.com/2020/09/17/wW1Ivd.png"><br>当使用 <code>Java Client</code> 方式连接时可能会报如下错误：<br><img src="https://s1.ax1x.com/2020/09/18/w4WPsg.png">  </p><blockquote><p><code>Unable to launch the application</code>  </p></blockquote><p>点击图中的 <code>Details</code>，显示如下图：<br><img src="https://s1.ax1x.com/2020/09/18/w4WKQU.png">  </p><blockquote><p><code>java.io.IOException: server Returned HTTP response code: 405 for URL: https://XXX/443/designs/imm/aessrp/avctIBMViewer_V082817.jar</code>  </p></blockquote><p>下面我们先做一下简要分析。</p></span><span id="2"><h2 id="简要分析"><a href="#简要分析" class="headerlink" title="简要分析"></a>简要分析</h2><p>其实，这里有点托大。本人并不是很确定该错误出现的具体原因。但通过报错产生的上下文推断，可以大致有个猜想：该报错绝大多数都是在连接同一台服务器时产生，并且是在已经连接过之后才会产生。所以推断，产生报错的原因是，当第二次连接的时候会使用某些第一次连接时产生的数据，但是连接时校验产生错误，所以不匹配而导致无法启动。  </p><p><em>以上的推论实际上可以无视，大家只要使用下面的方式能够解决问题就可以了。</em></p></span><span id="3"><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>实际上以上报错只要清理一下 <code>Java</code> 控制面板的缓存及安装的文件和应用即可，具体方法如下：  </p><ol><li>按下 <code>Windows</code> 的 <code>Win</code> 键，输入 <code>control</code> 打开控制面板。  </li><li>选择 <code>程序（program）</code>。<br><img src="https://s1.ax1x.com/2020/09/17/wW1TKA.png">  </li><li>点击 <code>Java</code>，出现以下面板。<br><img src="https://s1.ax1x.com/2020/09/17/wW15gH.png">  </li><li>点击 <code>settings</code>。<br><img src="https://s1.ax1x.com/2020/09/17/wW1RUK.png">  </li><li>点击 <code>Delete Files...</code><br><img src="https://s1.ax1x.com/2020/09/17/wW12E6.png">  </li><li>选择图中两项，第三项可选可不选，点击 <code>OK</code> 即可。  </li></ol><p>此时，再次使用 <code>Java Client</code> 方式连接即可成功。</p></span>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术分享 </category>
+          
+          <category> 解决方案 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 解决方案 </tag>
+            
+            <tag> BMC </tag>
+            
+            <tag> Video Viewer Control </tag>
+            
+            <tag> IMM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>设置CentOS默认yum源为国内源</title>
+      <link href="/posts/881d08f0/"/>
+      <url>/posts/881d08f0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>CentOS</code> 默认的 <code>yum</code> 源不是国内源，导致 <code>yum</code> 在安装某些软件的时候速度不是很理想，我们可以选择将默认源设置为国内源。<br>国内可用的镜像站点是网易和阿里镜像，我们可以先 <code>ping</code> 一下这两个站点，选择速度较快的一个进行设置。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost hexo]# ping 163.com</span><br><span class="line">PING 163.com (123.58.180.8) 56(84) bytes of data.</span><br><span class="line">64 bytes from 123.58.180.8 (123.58.180.8): icmp_seq=1 ttl=54 time=40.8 ms</span><br><span class="line">64 bytes from 123.58.180.8 (123.58.180.8): icmp_seq=2 ttl=54 time=40.9 ms</span><br><span class="line">64 bytes from 123.58.180.8 (123.58.180.8): icmp_seq=3 ttl=54 time=40.7 ms</span><br><span class="line">64 bytes from 123.58.180.8 (123.58.180.8): icmp_seq=4 ttl=54 time=40.7 ms</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost hexo]# ping aliyun.com</span><br><span class="line">PING aliyun.com (106.11.248.144) 56(84) bytes of data.</span><br><span class="line">64 bytes from 106.11.248.144 (106.11.248.144): icmp_seq=1 ttl=37 time=30.6 ms</span><br><span class="line">64 bytes from 106.11.248.144 (106.11.248.144): icmp_seq=2 ttl=37 time=30.6 ms</span><br><span class="line">64 bytes from 106.11.248.144 (106.11.248.144): icmp_seq=3 ttl=37 time=30.5 ms</span><br><span class="line">64 bytes from 106.11.248.144 (106.11.248.144): icmp_seq=4 ttl=37 time=30.5 ms</span><br></pre></td></tr></table></figure><p>我这里阿里源的速度更快，所以以设置阿里源为例。</p><h2 id="设置步骤"><a href="#设置步骤" class="headerlink" title="设置步骤"></a>设置步骤</h2><ul><li>备份默认 <code>yum</code> 源  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak</span><br></pre></td></tr></table></figure></li><li>根据 <code>CentOS</code> 的版本下载相应的阿里云的镜像源文件，注意此时如果没有安装 <code>wget</code> 的话，需要先安装（<code>yum -y install wget</code>）。 <ul><li>CentOS5  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</span><br></pre></td></tr></table></figure></li><li>CentOS6  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br></pre></td></tr></table></figure></li><li>CentOS7  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure></li></ul></li><li>清空 <code>yum</code> 缓存并生成 <code>cache</code> 文件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure></li><li>更新系统  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>至此 <code>CentOS</code> 的默认 <code>yum</code> 源就更换为了阿里源。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术分享 </category>
+          
+          <category> 操作系统 </category>
+          
+          <category> CentOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CentOS </tag>
+            
+            <tag> yum </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用config文件管理ssh配置</title>
+      <link href="/posts/1c5df34e/"/>
+      <url>/posts/1c5df34e/</url>
+      
+        <content type="html"><![CDATA[<h2 id="阅读目录"><a href="#阅读目录" class="headerlink" title="阅读目录"></a>阅读目录</h2><p><a href="#1">1. 前言</a><br><a href="#2">2. 生成密钥</a><br><a href="#3">3. 通过案例配置 <code>config</code></a></p><span id="1"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文假设读者已经了解 <code>ssh</code> 的基本原理并掌握其基本用法；所以重点说明如何用 <code>config</code> 文件来管理 <code>ssh</code> 的用户配置。  </p><p>当我们使用 <code>ssh</code> 登录其他主机时，可能会有以下几种需求：  </p><ol><li>我们会通过 <code>SSH</code> 从自己的 <code>github</code> 仓库上拉取某个项目的代码，或者提交代码更新；</li><li>我们有自己的服务器，需要通过 <code>SSH</code> 远程登录或者免密登录；</li><li>在公司的服务器上进行远程登录访问，或者在公司搭建的私有仓库上拉取或者提交代码；</li><li>…等等  </li></ol><p>总而言之，当我们想对多个不同的主机使用不同的密钥，或者对同一个主机使用不同的密钥，再或者对不同的主机使用同一个密钥。我们都可以使用 <code>config</code> 文件进行配置。我们 <code>ssh</code> 可以用命令行进行选项控制，也可以使用 <code>/etc/ssh/sshd_config</code> 文件进行 <code>ssh</code> 的系统配置，而 <code>config</code> 文件则是用来对 <code>ssh</code> 进行用户相应的配置。下面我们来看一下如何使用 <code>config</code> 文件进行配置。在此之前，先熟悉一下如何生成密钥。<br></span></p><span id="2"><h2 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h2><ul><li>打开终端，进入 <code>~/.ssh/</code> 目录下，执行以下命令：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;hitwhy@gmail.com&quot;</span><br></pre></td></tr></table></figure><code>-t</code> 参数指定生成密钥的类型（算法），也即 <code>type</code>，这里是 <code>rsa</code>。<br><code>-C</code> 参数指定密钥注释，一般写邮箱即可。</li><li>运行命令后，出现以下提示：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost .ssh]# ssh-keygen -t rsa -C &quot;hitwhy@gmail.com&quot;</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/root/.ssh/id_rsa):</span><br></pre></td></tr></table></figure></li><li>输入文件名称，建议输入一个含义明确的名字。这里假设有一台主机名为 <code>host</code> 的主机，故输入 <code>id_rsa_host</code>，回车提交：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost .ssh]# ssh-keygen -t rsa -C &quot;hitwhy@gmail.com&quot;</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/root/.ssh/id_rsa): id_rsa_host</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br></pre></td></tr></table></figure></li><li>接下来提示输入密码，这里建议直接回车，不设置密码。当然也可以选择设置，只是设置密码后每次输入都要填写密码，徒增麻烦。这里直接按两次回车：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost .ssh]# ssh-keygen -t rsa -C &quot;hitwhy@gmail.com&quot;</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/root/.ssh/id_rsa): id_rsa_host</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in id_rsa_host.</span><br><span class="line">Your public key has been saved in id_rsa_host.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:vkEK4/zLJ29JJLmMHunC8VlvqiL8EUJl85kkkjPhTzw hitwhy@gmail.com</span><br><span class="line">The key&#x27;s randomart image is:</span><br><span class="line">+---[RSA 2048]----+</span><br><span class="line">| oo= .           |</span><br><span class="line">|.+= = o          |</span><br><span class="line">| ooE + .         |</span><br><span class="line">|. o . o .        |</span><br><span class="line">| . oo+ +S        |</span><br><span class="line">|  oo=o++.        |</span><br><span class="line">|.. *o+.oo.       |</span><br><span class="line">|..+ *o. *o       |</span><br><span class="line">| ..+..=Oo        |</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure></li><li>此时密钥就生成了。在 <code>~/.ssh</code> 目录下会生成两个文件，<code>id_rsa_host</code> 和 <code>id_rsa_host.pub</code>，即私钥和公钥。<br>生成密钥之后就可以进行相关的配置来登录其他主机。<br>一般的做法是，将我们刚才生成的公钥添加到目标主机相应用户的 <code>.ssh</code> 目录下的 <code>authorized_keys</code> 文件中，这里注意该文件的访问权限应当设置为 <code>600</code>。当我们访问该主机时，我们的数据会用本机的私钥(<code>id_rsa_host</code>)进行加密，目标主机接收后再用 <code>authorized_keys</code> 文件中相应的公钥进行解密，从而实现数据的加密传输；反之亦然。可以使用命令 <code>ssh-copy-id -i ~/.ssh/私钥名称 远程用户名@远程主机地址</code> 将公钥添加到目标主机。<br>如果不将公钥添加到 <code>authorized_keys</code> 文件中，那么每次远程登录的时候都需要输入密码确认，所以也就不是免密登录了。</span></li></ul><span id="3"><h2 id="通过案例配置-config"><a href="#通过案例配置-config" class="headerlink" title="通过案例配置 config"></a>通过案例配置 <code>config</code></h2><p>首先在本机的 <code>~/.ssh</code> 目录下创建 <code>config</code> 文件。下面先说一下该文件中用的几个参数及其含义：</p><table><thead><tr><th>参数</th><th>含义</th></tr></thead><tbody><tr><td><code>Host</code></td><td>关键字，别名，下面案例中详细解释</td></tr><tr><td><code>HostName</code></td><td>目标主机 <code>IP</code> 地址或域名</td></tr><tr><td><code>Port</code></td><td><code>ssh</code> 连接端口</td></tr><tr><td><code>User</code></td><td>登录该主机的用户</td></tr><tr><td><code>IdentityFile</code></td><td>登录该主机使用的密钥文件</td></tr></tbody></table><p>下面看两个例子，假设主机 <code>B</code> 的地址为 <code>www.B.com</code>，主机 <code>C</code> 的地址为 <code>www.C.com</code>。</p><ol><li>本机 <code>A</code> 使用不同密钥访问主机 <code>B</code> 和主机 <code>C</code>。<br>在主机 <code>A</code> 的 <code>~/.ssh</code> 目录下生成两对密钥，假设分别为 <code>id_rsa_B</code>、<code>id_rsa_B.pub</code> 和 <code>id_rsa_C</code>、<code>id_rsa_C.pub</code>，分别对应于登录主机 <code>B</code> 和主机 <code>C</code> 的密钥文件。本机 <code>config</code> 文件的内容如下： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Host B</span><br><span class="line">     HostName www.B.com</span><br><span class="line">     Port 22</span><br><span class="line">     User B</span><br><span class="line">     IdentityFile ~/.ssh/id_rsa_B</span><br><span class="line"></span><br><span class="line">Host C</span><br><span class="line">     HostName www.C.com</span><br><span class="line">     Port 6789</span><br><span class="line">     User C</span><br><span class="line">     IdentityFile ~/.ssh/id_rsa_C</span><br></pre></td></tr></table></figure>当我们登录主机 <code>B</code> 的时候，在终端使用以下命令：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh B</span><br></pre></td></tr></table></figure>然后输入密码即可，如果将公钥 <code>id_rsa_B.pub</code> 存储到目标主机的话就可以实现免密登录。这里 <code>B</code> 就是主机 <code>www.B.com</code> 的对应的 <code>ssh</code> 配置的别名，<code>ssh B</code> 在这里等同于 <code>ssh -p 22 -i ~/.ssh/id_rsa_B B@www.B.com</code>。使用 <code>config</code> 配置一次，以后访问就可以直接使用 <code>ssh B</code> 登录，是不是很简洁呢？由于 <code>ssh</code> 默认使用的就是 <code>22</code> 端口，所以上面 <code>Port 22</code> 这一行可以省略。但是，如果像主机 <code>C</code> 一样，将 <code>ssh</code> 的默认端口改变的话（这里是<code>6789</code>），那就不能省略了。此外，如果本机用户名与远程登录的用户名相同的话，那么 <code>User B</code> 这一行也是可以省略的。最后一点，就是我们也可以将每一行中间的空格换成 <code>=</code>，例如 <code>Port=22</code>，效果是一样的。</li><li>本机 <code>A</code> 使用相同密钥访问主机 <code>B</code> 和主机 <code>C</code>。<br>同样，我们还是以上面的两对密钥 <code>id_rsa_B</code>、<code>id_rsa_B.pub</code> 和 <code>id_rsa_C</code>、<code>id_rsa_C.pub</code> 为例。本机 <code>config</code> 文件内容如下： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github.com gitee.com</span><br><span class="line">     HostName %h</span><br><span class="line">     Port 22</span><br><span class="line">     User A</span><br><span class="line">     IdentityFile ~/.ssh/id_rsa_git</span><br></pre></td></tr></table></figure><code>%h</code> 代表远程主机名，上面的例子中也就是代表 <code>Host</code> 中的两个主机名。当我们访问 <code>github</code> 时，<code>ssh</code> 就会匹配上面的配置，<code>%h</code> 就会匹配 <code>github.com</code>，使用上面的信息进行访问。<br>配置完成之后我们可以测试一下是否成功：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></li></ol></span>   ]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术分享 </category>
+          
+          <category> ssh </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker设置默认镜像源为阿里源</title>
+      <link href="/posts/fc4278eb/"/>
+      <url>/posts/fc4278eb/</url>
+      
+        <content type="html"><![CDATA[<p><code>docker</code> 默认的镜像源在国外，所以我们安装完 <code>docker</code> 拉取镜像的时候速度会非常慢，而且经常拉取失败。这里介绍一下将 <code>docker</code> 默认镜像地址设置为阿里的镜像加速源的方法。如果想设置为国内其他镜像源的地址，也可参照方法进行相应地址的更改即可。<br>几个比较常用的国内镜像源地址如下：</p><ol><li><code>docker</code> 官方中国区：<code>https://registry.docker-cn.com</code></li><li>网易：<code>http://hub-mirror.c.163.com</code></li><li><code>USTC</code>：<code>http://docker.mirrors.ustc.edu.cn</code></li></ol><p>下面介绍更改为阿里源的方法。  </p><h2 id="获取阿里镜像源的地址"><a href="#获取阿里镜像源的地址" class="headerlink" title="获取阿里镜像源的地址"></a>获取阿里镜像源的地址</h2><ul><li>登录<a href="https://cn.aliyun.com/">阿里云</a>(<code>https://cn.aliyun.com/</code>)<br><img src="https://s1.ax1x.com/2020/09/01/dxLLFI.jpg">  </li><li>点击进入控制台<br><img src="https://s1.ax1x.com/2020/09/01/dxLoOe.jpg">  </li><li>点击左上角的图标，选择<code>产品与服务</code>，然后在搜索框内输入关键字<code>容器镜像服务</code>，出现搜索结果后选择<code>容器镜像服务</code><br><img src="https://s1.ax1x.com/2020/09/01/dxLbTA.jpg">  </li><li>选择最下面的镜像加速器<br><img src="https://s1.ax1x.com/2020/09/01/dxLHwd.jpg">  </li><li>此时出现的部分就是如何将 <code>docker</code> 的默认镜像地址修改为阿里云加速地址的方法。按照红框内的方式操作即可（参考第二部分内容）。<br><img src="https://s1.ax1x.com/2020/09/01/dxL7eH.jpg">  </li></ul><h2 id="将-docker-默认地址更改为阿里镜像源"><a href="#将-docker-默认地址更改为阿里镜像源" class="headerlink" title="将 docker 默认地址更改为阿里镜像源"></a>将 <code>docker</code> 默认地址更改为阿里镜像源</h2><ul><li>首先确定 <code>/etc/docker</code> 目录存在，如果不存在则创建  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker   </span><br></pre></td></tr></table></figure></li><li>在 <code>/etc/docker</code> 目录下增加文件 <code>daemon.json</code>，并将其内容改为加速地址  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">&quot;registry-mirrors&quot;: [&quot;https://4wpmqmc8.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></li><li>重载配置使之生效  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure></li><li>重启 <code>docker</code> 加载配置  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure></li></ul><p>如果登录的是 <code>root</code> 用户，则将命令的 <code>sudo</code> 去掉执行。</p><p>以上就是将 <code>docker</code> 默认镜像地址修改为阿里云加速地址的方法。修改完成之后可以测试一下拉取速度是不是比之前快多了？</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ubuntu</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术分享 </category>
+          
+          <category> hexo </category>
+          
+          <category> butterfly </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>butterfly主题页面</title>
+      <link href="/posts/2e99775b/"/>
+      <url>/posts/2e99775b/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-Front-matter"><a href="#1-Front-matter" class="headerlink" title="1. Front-matter"></a>1. <code>Front-matter</code></h2><p>档案最上方以 <code>---</code> 分隔的区域，用于指定个别档案的配置。  </p><blockquote><hr><p>title: 主题页面 #[必需] 页面标题<br>date: #[必需] 页面创建日期<br>type: Hexo #[必需] 标签、分类和友情链接三个页面需要配置<br>updated: #[可选] 页面更新日期<br>comments: #[可选] 显示页面评论模块，默认为 true<br>description: #[可选] 页面描述<br>keywords: #[可选] 页面关键字<br>top_img: #[可选] 页面顶部图片<br>mathjax: #[可选] 显示 mathjax，当设置 mathjax 的 per_page: false 时才需要配置，默认为 false<br>katex: #[可选] 同上<br>aside: #[可选] 显示侧边栏，默认为 true<br>aplayer: #[可选] 在需要的页面加载 aplayer 的 js 和 css，参考<code>音乐</code>配置<br>highlight_shrink: #[可选] 配置代码框是否展开，默认为设置中 highlight_shrink 的配置</p><hr></blockquote><h2 id="2-Post-Front-matter"><a href="#2-Post-Front-matter" class="headerlink" title="2. Post Front-matter"></a>2. <code>Post Front-matter</code></h2><p>档案最上方以 <code>---</code> 分隔的区域，用于指定具体博客的配置。</p><blockquote><hr><p>title: #【必需】文章標題<br>date: #【必需】文章創建日期<br>updated: #【可選】文章更新日期<br>tags: #【可選】文章標籤<br>categories: #【可選】文章分類<br>keywords: #【可選】文章關鍵字<br>description: #【可選】文章描述<br>top_img: #【可選】文章頂部圖片<br>comments: #【可選】顯示文章評論模塊 (默認 true)<br>cover: #【可選】文章縮略圖 (如果沒有設置 top_img, 文章頁頂部將顯示縮略圖，可設為 false / 圖片地址 / 留空)<br>toc: #【可選】顯示文章 TOC (默認為設置中 toc 的 enable 配置)<br>toc_number: #【可選】顯示 toc_number (默認為設置中 toc 的 number 配置)<br>auto_open: #【可選】是否自動打開 TOC (默認為設置中 toc 的 auto_open 配置)<br>copyright: #【可選】顯示文章版權模塊 (默認為設置中 post_copyright 的 enable 配置)<br>copyright_author: #【可選】文章版權模塊的文章作者<br>copyright_author_href: #【可選】文章版權模塊的文章作者鏈接<br>copyright_url: #【可選】文章版權模塊的文章連結鏈接<br>copyright_info: #【可選】文章版權模塊的版權聲明文字<br>mathjax: #【可選】顯示 mathjax (當設置 mathjax 的 per_page: false 時，才需要配置，默認 false)<br>katex: #【可選】顯示 katex (當設置 katex 的 per_page: false 時，才需要配置，默認 false)<br>aplayer: #【可選】在需要的頁面加載 aplayer 的 js 和 css, 請參考文章下面的音樂 配置<br>highlight_shrink: #【可選】配置代碼框是否展開 (true/false)(默認為設置中 highlight_shrink 的配置)</p><hr></blockquote><h2 id="3-关于-butterfly-详细的配置请移步-butterfly-配置"><a href="#3-关于-butterfly-详细的配置请移步-butterfly-配置" class="headerlink" title="3. 关于 butterfly 详细的配置请移步 butterfly 配置"></a>3. 关于 <code>butterfly</code> 详细的配置请移步 <a href="https://demo.jerryc.me/posts/4aa8abbe">butterfly 配置</a></h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术分享 </category>
+          
+          <category> hexo </category>
+          
+          <category> butterfly </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

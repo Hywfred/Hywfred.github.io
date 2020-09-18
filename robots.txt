@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://weichal.com/sitemap.xml
+Sitemap: https://weichal.com/baidusitemap.xml
