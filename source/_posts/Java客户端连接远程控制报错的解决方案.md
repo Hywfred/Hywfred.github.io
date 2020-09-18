@@ -3,7 +3,6 @@ title: 使用Java客户端连接IMM系统时报错的解决方案
 tags:
   - 解决方案
   - BMC
-  - Video Viewer Control
   - IMM
 categories:
   - 技术分享
