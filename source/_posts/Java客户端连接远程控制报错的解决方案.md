@@ -13,7 +13,7 @@ keywords: >-
 description: >-
   使用Java客户端远程连接BMC时报错， Unable to launch the application，具体信息是Server returned
   HTTP code: 405 for URL，通常是第二次连接同一个服务器时发生。本文记录其解决方案。
-top_img: 'https://s1.ax1x.com/2020/09/18/w4ziOH.png'
+top_img: 'https://s1.ax1x.com/2020/09/18/whCOaR.jpg'
 cover: 'https://s1.ax1x.com/2020/09/18/w4z1mj.png'
 abbrlink: 32ee7bef
 date: 2020-09-17 06:23:16
