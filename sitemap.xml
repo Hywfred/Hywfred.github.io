@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://weichal.com/posts/1c5df34e/</loc>
+    
+    <lastmod>2020-09-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://weichal.com/posts/32ee7bef/</loc>
     
     <lastmod>2020-09-19</lastmod>
@@ -17,13 +24,6 @@
   
   <url>
     <loc>http://weichal.com/tags/index.html</loc>
-    
-    <lastmod>2020-09-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://weichal.com/posts/1c5df34e/</loc>
     
     <lastmod>2020-09-18</lastmod>
     
@@ -74,7 +74,7 @@
 
   <url>
     <loc>http://weichal.com/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -82,63 +82,63 @@
   
   <url>
     <loc>http://weichal.com/tags/hexo/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/tags/butterfly/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/tags/BMC/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/tags/IMM/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/tags/ssh/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/tags/docker/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/tags/CentOS/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/tags/yum/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -147,49 +147,49 @@
   
   <url>
     <loc>http://weichal.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/ssh/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/hexo/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/hexo/butterfly/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://weichal.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/CentOS/</loc>
-    <lastmod>2020-09-19</lastmod>
+    <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
